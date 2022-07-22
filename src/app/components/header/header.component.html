@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar [color]="diseno">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" [color]="disenoIcono">
+        <ion-icon slot="start" name="menu-outline" [color]="disenoIcono"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start"> {{titulo}}</ion-title>
+
+    <ion-icon slot="end" (click)="menuGuardar()" [name]="icono" [color]="disenoGuardar" class="iconoGuardar"></ion-icon>
+  
+    </ion-toolbar>
+</ion-header>

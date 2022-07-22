@@ -1,0 +1,63 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="start" name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start"> Productos Terminados</ion-title>
+  </ion-toolbar>
+
+  <ion-searchbar
+    placeholder="Buscar Articulo"
+    inputmode="text"
+    (ionChange)="onSearchChange($event)"
+    animated
+  ></ion-searchbar>
+</ion-header>
+
+<ion-content color="primary">
+  <!-- Searchbar with cancel button always shown -->
+
+  <ion-refresher slot="fixed" closeDuration='10ms' (ionRefresh)="refrescarDatos($event)" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <div
+    class="contenedor-card"
+    *ngFor="let item of productos.articulos | filtro:textoBuscar"
+    color="primary"
+  >
+    <ion-card model="ios" class="card" *ngIf="item.estado === true && item.cantidad === 0">
+      <ion-item class="titulo">
+        <ion-label slot="start">{{item.nombre}}</ion-label>
+        <ion-icon
+          slot="end"
+          name="pencil-outline"
+          color="dark"
+          [routerLink]="'/editar/'+item._id+'/'+item.nombre + '/' + item.img + '/' + item.cantidad + '/' + item.precio"
+        ></ion-icon>
+
+        <ion-button
+          (click)="menuEliminar(item._id)"
+          expand="block"
+          fill="clear"
+          slot="end"
+        >
+          <ion-icon slot="end" name="trash-outline" color="dark"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-item
+        class="contenedor_img"
+        [routerLink]="'/ver/'+item.nombre + '/' + item.img + '/' + item.cantidad + '/' + item.precio"
+      >
+        <ion-img [src]="url + item.img" class="img"></ion-img>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">Cantidad: {{item.cantidad}}</ion-label>
+        <ion-label class="precio">Precio: ${{item.precio}}</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>

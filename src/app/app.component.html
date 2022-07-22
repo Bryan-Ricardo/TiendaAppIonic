@@ -1,0 +1,32 @@
+<ion-app>
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink = "/inicio" >
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          Inicio
+        </ion-item>
+        <ion-item routerLink = "/agregar">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          Agregar Productos 
+        </ion-item>
+        <ion-item routerLink = "/sin-productos">
+          <ion-icon slot="start" name="alert-circle-outline"></ion-icon>
+          Productos Terminados
+        </ion-item>
+        <ion-item href = "https://62d999f163a49c2158dee614--cozy-halva-ce61a9.netlify.app/">
+          <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+          Ayuda
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
