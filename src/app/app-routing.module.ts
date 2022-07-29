@@ -28,6 +28,18 @@ const routes: Routes = [
     path: 'editar/:id/:nombre/:img/:cantidad/:precio',
     loadChildren: () => import('./pages/editar/editar.module').then( m => m.EditarPageModule)
   },
+  {
+    path: 'ventas',
+    loadChildren: () => import('./pages/ventas/ventas.module').then( m => m.VentasPageModule)
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+  {
+    path: 'ver-ventas/:id',
+    loadChildren: () => import('./pages/ver-ventas/ver-ventas.module').then( m => m.VerVentasPageModule)
+  },
 ];
 
 @NgModule({

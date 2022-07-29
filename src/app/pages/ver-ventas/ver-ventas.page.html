@@ -1,0 +1,48 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="start" name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">Carrito</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title slot="start">Total: ${{totalFacturar}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <!-- Searchbar with cancel button always shown -->
+
+  <div class="contenedor-card">
+    <ion-card model="ios" class="card">
+      <ion-item>
+        <ion-label>Fecha: {{venta.fecha}}</ion-label>
+        <ion-label>Hora: {{venta.hora}}</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+
+    <div
+      *ngFor="let item of productosVenta"
+      class="contenedor-card"
+      color="primary"
+    >
+      <ion-card model="ios" class="card">
+        <ion-item class="titulo">
+          <ion-label slot="start">{{item.nombre}}</ion-label>
+        </ion-item>
+        <ion-item
+          class="contenedor_img"
+        >
+          <ion-img [src]="url + item.img" class="img"></ion-img>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Cantidad: {{item.cantidad}}</ion-label>
+          <ion-label class="precio">Total: ${{item.precioTotal}}</ion-label>
+        </ion-item>
+      </ion-card>
+    </div>
+</ion-content>

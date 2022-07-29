@@ -1,0 +1,62 @@
+.card{
+    width: 307px;
+}
+
+.contenedor_img{
+    margin-left: 35px;
+}
+
+.img{
+    width: 200px;
+}
+
+.precio{
+    margin-left: 30px;
+}
+
+.titulo{
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border: 0.1px solid #d1d1d1;
+}
+
+.contenedor-card{
+    display: flex;
+    justify-content: center;
+ } 
+
+.boton-enviar{
+    margin-right: 10%;
+}
+
+.icono-enviar{
+    margin-right: 10%;
+}
+
+/*Iphone se*/
+
+@media (max-width: 412px){
+    .img{
+       width: 100%;
+    }   
+    .card{
+       width: 360px;
+    }
+    .img{
+       margin-right: 23px
+    }
+}
+
+@media (max-width: 414px){
+ .img{
+    width: 100%;
+ }  
+ .card{
+    width: 300px;
+}
+ .img{
+    margin-right: 20px
+ }
+}
+

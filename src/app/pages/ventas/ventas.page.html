@@ -1,0 +1,54 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="start" name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">Ventas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-refresher
+  slot="fixed"
+  closeDuration="10ms"
+  (ionRefresh)="refrescarDatos($event)"
+  pullFactor="0.8"
+  pullMin="60"
+  pullMax="120"
+>
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+<div
+  class="contenedor-card"
+  *ngFor="let item of productos.venta "
+  color="primary"
+>
+      <ion-card model="ios" class="card">
+        <ion-item class="titulo">
+          <ion-label slot="start">Opciones</ion-label>
+          <ion-icon
+            slot="end"
+            name="eye-outline"
+            color="dark"
+            [routerLink]="'/ver-ventas/' + item._id"
+          ></ion-icon>
+          <ion-button
+            (click)="menuEliminar(item._id)"
+            expand="block"
+            fill="clear"
+            slot="end"
+          >
+            <ion-icon slot="end" name="trash-outline" color="dark"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-label >Fecha: {{item.fecha}}</ion-label>
+          <ion-label >Hora: {{item.hora}}</ion-label>
+        </ion-item>
+      </ion-card>
+</div>
+</ion-content>
